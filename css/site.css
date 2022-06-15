@@ -5,6 +5,12 @@
     --white-color: #e7e7e7;
 }
 
+.logoFont{
+    font-family: 'Grandstander',
+    cursive;
+    color: rgb(85, 205, 85);
+}
+
 body {
     color: var(--dark-color)
 }
