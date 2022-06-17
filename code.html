@@ -29,7 +29,7 @@
 
 <body class="d-flex flex-column h-100">
 
-    <nav class="navbar navbar-expand-md navbar-dark fixed-top">
+    <nav class="navbar navbar-expand-md fixed-top">
         <div class="container-fluid">
             <a class="navbar-brand" href="#"><img src="/img/GL Logo Small Dark.svg" alt="Greg Layton Logo" height="36"
                     class="d-inline-block"><span class="logoFont"> CenTree</span></a>
@@ -62,17 +62,55 @@
                 <div class="col-lg-8">
                     <pre class="line-numbers">
                         <code class="lang-js">
-                            // Call Hello World
-                            function HelloWorld(){
-                            alert("Hello World!");
+                            //get values from ui, generate number list and display results
+                            function getValues(){
+                                let startVal = parseInt(document.getElementById("startVal").value);
+                                let endVal = parseInt(document.getElementById("endVal").value);
+                                if (!Number.isInteger(startVal) || !Number.isInteger(endVal)) {
+                                alert("You must enter only Integers into both fields.")
+                                }
+                                let numbers = generateNumbers(startVal,endVal);
+                                displayResults(numbers);
+                            }
+
+                            // generate numbers from start value to ending value
+                            function generateNumbers(startVal,endVal){
+                                let numbers = [];
+                                for (let i = startVal; i < endVal+1; i++) { 
+                                    numbers.push(i); 
+                                }
+                                return numbers; 
+                            } 
+                            
+                            //display the generated numbers, even numbers bold per challenge 
+                            function displayResults(numbers){
+                                let tableRow="" ; 
+                                numbers.forEach(element=> {
+                                    if (element % 2 === 0 && element != 0) {
+                                    //The display method does not handle template literals. Please see full code if needed.
+                                    tableRow += `<tr><td><b>${element}</b></td></tr>`; 
+                                    }
+                                    else{
+                                    tableRow += `<tr><td>${element}</td></tr>`;
+                                    }
+                                });
+                                document.getElementById("results").innerHTML = tableRow
                             }
                         </code>
                     </pre>
                 </div>
                 <div class="col-lg-4">
-                    <p>Descriptions of the code structure</p>
-                    <h5>Hello World</h5>
-                    <p>Description of the codes function</p>
+                    <p>This application was broken into an overall control function, a logic function and a display function.</p>
+                    <h5 class="pt-3">getValues()</h5>
+                    <p>Takes the entered values, or the defaults if none were entered, and calls 
+                        generateNumbers() with those values to create the list. 
+                        Passes the list and calls displayResults().</p>
+                    <h5 class="pt-3">generateNumbers()</h5>
+                    <p>Creates a list of integers based on values collected from the form.</p>
+                    <h5 class="pt-3">displayResults()</h5>
+                    <p>Loops through every element in the passed array and formats them based on "Even or odd" status.
+                        Adds all elements to a table on the page to display.
+                    </p>
                 </div>
             </div>
         </div>
