@@ -45,7 +45,7 @@
                         <a class="nav-link" href="index.html">Home</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="app.html">The App</a>
+                        <a class="nav-link active" aria-current="page" href="app.html"><span>The App</span></a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="code.html">The Code</a>
@@ -92,6 +92,9 @@
                                 </tbody>
                             </table>
                         </div>
+                        <div class="col-12 mt-4">
+                            <button type="button" id="btnClear" class="btn btn-danger">Clear Form</button>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -137,6 +140,9 @@
         <script src="/js/site.js"></script>
         <script>
             document.getElementById("submitButton").addEventListener("click",getValues);
+        </script>
+        <script>
+            document.getElementById("btnClear").addEventListener("click", clearForm)
         </script>
 </body>
 

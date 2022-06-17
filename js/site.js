@@ -31,3 +31,8 @@ function displayResults(numbers){
     });
     document.getElementById("results").innerHTML = tableRow
 }
+
+// clear form
+function clearForm(){
+    location.reload();
+}
